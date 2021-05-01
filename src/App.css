@@ -16,6 +16,19 @@ body {
   padding: 0;
 }
 
+/* TUTORIAL */
+
+#tutorial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-bg);
+  z-index: 10;
+  transition: all 0.3s;
+}
+
 /* STYLING CLASSES */
 
 .flex-row {
@@ -52,6 +65,7 @@ main > section {
 
 #sidebar {
   position: fixed;
+  justify-content: space-between;
   top: 10%;
   left: 0;
   background-color: var(--color-bg);
@@ -70,6 +84,23 @@ main > section {
   border-radius: 0;
   top: 0;
   height: 100vh;
+}
+
+#sidebar ul {
+  list-style: none;
+}
+
+#sidebar a {
+  text-decoration: none;
+  color: var(--color-main);
+  font-size: 2rem;
+}
+
+#sidebar li:nth-child(2n) {
+  border-top: 0.1rem solid var(--color-main);
+  border-bottom: 0.1rem solid var(--color-main);
+  margin: 1rem 0;
+  padding: 1rem 0;
 }
 
 footer {

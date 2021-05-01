@@ -19,8 +19,9 @@ const Sidebar = () => {
             onMouseLeave={handleHover}
         >
         {
-            mode === 'active' ? <SidebarNavLinks /> : <span>Oi</span>
+            mode === 'active' ? <SidebarNavLinks /> : ''
         }
+        <div id="logo">Logo</div>
         </div>
     )
 }
