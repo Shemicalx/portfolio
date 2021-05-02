@@ -1,20 +1,25 @@
 import React, { useState } from 'react'
 
-const HoverableButton = ({setter, rotate}) => {
+const HoverableButton = ({setter, rotate, children}) => {
 
     const [ hovered, setHovered ] = useState(false);
     
     function handleHover(e) {
         setHovered(() => !hovered)
-        setter(e);
+        if(typeof setter == 'function'){
+            setter(e);
+        } else {
+            return
+        }
     }
  
     return (
         <button 
-            className={`hoverable-button ${hovered ? 'active' : ''}`}
+            className={`hoverable-button flex-col${hovered ? ' active' : ''}`}
             onMouseEnter={handleHover} 
             onMouseLeave={handleHover}
         >
+            {children ? children : ''}
             <div 
                 className={`
                     hoverable-button-decoration 

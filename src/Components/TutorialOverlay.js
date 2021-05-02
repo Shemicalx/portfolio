@@ -5,7 +5,7 @@ import HoverableButton from './HoverableButton';
 const TutorialOverlay = ({setTutorial}) => {
 
     const [ hover, setHover ] = useState(false);
-    const [counter, setCounter] = useState(2);
+    const [counter, setCounter] = useState(1);
     const { updateCursorPosition } = useContext(CursorContext);
 
     useEffect(()=> {
@@ -20,7 +20,7 @@ const TutorialOverlay = ({setTutorial}) => {
         }
         if( e.type === 'mouseleave') {
             setHover(()=> false);
-            setCounter(()=> 2);
+            setCounter(()=> 1);
         }
     }
 

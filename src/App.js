@@ -41,6 +41,7 @@ function App() {
               </Switch>
             </main>
             <footer className="flex-row">Made by Noam Shemi.</footer>
+            <Cursor />
           </div>
       </CursorProvider>
     </Router>
