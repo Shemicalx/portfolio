@@ -163,6 +163,7 @@ footer {
 }
 
 .hoverable-button {
+  position: relative;
   height: var(--hoverable-button-size);
   width: var(--hoverable-button-size);
   border: none;
@@ -170,10 +171,100 @@ footer {
   background-color: var(--color-bg);
   border-radius: 50%;
   box-shadow: 0 0 0 0.2rem var(--color-main);
-  transition: all 0.4s;
+  transition: all 0.2s;
+  z-index: 12;
 }
 
 .hoverable-button.active {
   box-shadow: 0 0 0 0.6rem var(--color-main);
-  transform: scale(0.9);
+}
+
+.hoverable-button-decoration {
+  height: inherit;
+  width: inherit;
+  pointer-events: none;
+}
+
+.hoverable-button-decoration::after {
+  content: '';
+  position: absolute;
+  bottom: 75%;
+  left: 75%;
+  background-color: var(--color-main);
+  height: 1rem;
+  width: 1rem;
+  box-shadow: 
+    0rem 0rem 0 0rem #555,
+    0rem 0rem 0 0rem #444,
+    0rem 0rem 0 0rem #333,
+    0rem 0rem 0 0.4rem var(--color-bg);
+  transition: bottom 0.4s, left 0.4s, box-shadow 0.4s, background-color 0.4s;
+}
+
+.hoverable-button-decoration::before {
+  content: '';
+  position: absolute;
+  top: 75%;
+  right: 75%;
+  background-color: var(--color-main);
+  height: 1rem;
+  width: 1rem;
+  box-shadow: 
+    0rem 0rem 0 0rem #555,
+    0rem 0rem 0 0rem #444,
+    0rem 0rem 0 0rem #333,
+    0rem 0rem 0 0.4rem var(--color-bg);
+  transition: top 0.4s, right 0.4s, box-shadow 0.4s, background-color 0.4s;
+}
+
+.hoverable-button-decoration.active::after {
+  bottom: 100%;
+  left: 100%;
+  background-color: #666;
+  box-shadow: 
+    -0.2rem 0.2rem 0 0rem #555,
+    -0.4rem 0.4rem 0 0.1rem #444,
+    -0.6rem 0.6rem 0 0.2rem #333,
+    -0.8rem 0.8rem 0 0.3rem var(--color-bg);
+}
+
+.hoverable-button-decoration.active::before {
+  top: 100%;
+  right: 100%;
+  background-color: #666;
+  box-shadow: 
+    0.2rem -0.2rem 0 0rem #555,
+    0.4rem -0.4rem 0 0.1rem #444,
+    0.6rem -0.6rem 0 0.2rem #333,
+    0.8rem -0.8rem 0 0.5rem var(--color-bg);
+}
+
+#cursor {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  border-radius: 50%;
+  background-color: #aaa;
+  height: calc(var(--hoverable-button-size) - 1rem);
+  width: calc(var(--hoverable-button-size) - 1rem);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  z-index: 11;
+  pointer-events: none;
+}
+
+#cursor.focused {
+  transform: translate(0 , 0) scale(0.8);
+}
+
+/* ANIMATIONS */
+
+.rotate {
+  animation: rotation 20s infinite linear;
+}
+
+@keyframes rotation {
+  100% {
+    transform: rotate(360deg);
+  }
 }

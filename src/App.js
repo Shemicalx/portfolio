@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import './App.css';
 import ContactPage from './Components/ContactPage';
+import Cursor from './Components/Cursor';
 import HomePage from './Components/HomePage';
 import ProjectsPage from './Components/ProjectsPage';
 import Sidebar from './Components/Sidebar';
@@ -16,6 +17,7 @@ function App() {
   if(tutorial) return (
     <CursorProvider>
       <TutorialOverlay setTutorial={setTutorial} />
+      <Cursor />
     </CursorProvider>
   ) 
 

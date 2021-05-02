@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { CursorContext } from '../Contexts/CursorContext';
 import HoverableButton from './HoverableButton';
 
 const TutorialOverlay = ({setTutorial}) => {
 
     const [ hover, setHover ] = useState(false);
     const [counter, setCounter] = useState(2);
+    const { updateCursorPosition } = useContext(CursorContext);
 
     useEffect(()=> {
         const hoverTimer = counter > 0 && hover && setInterval(() => setCounter(counter - 1), 1000);
-        console.log(counter);
         if(!counter) setTutorial(() => false);
         return () => clearInterval(hoverTimer);
     },[counter, hover]);
@@ -26,10 +27,10 @@ const TutorialOverlay = ({setTutorial}) => {
     return (
         <div 
             id="tutorial" 
-            // onClick={handleTutorial}
+            onMouseMove={updateCursorPosition}
             className="flex-col"
         >
-            <HoverableButton setter={handleTutorial} />
+            <HoverableButton rotate={true} setter={handleTutorial} />
         </div>
     )
 }

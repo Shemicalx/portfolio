@@ -1,20 +1,16 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
+import useCursorPosition from "../Hooks/useCursorPosition";
 
 export const CursorContext = createContext();
 
 export function CursorProvider({children}) {
 
-    const [ cursorPosition, setCursorPosition ] = useState({
-        x: 0,
-        y: 0,
-    })
-
-    useEffect(() => {
-        console.log(cursorPosition);
-    },[cursorPosition]);
+    const [ cursorPosition, setCursorPosition ] = useCursorPosition();
 
     return (
-        <CursorContext.Provider value={{cursorPosition, setCursorPosition}}>
+        <CursorContext.Provider 
+            value={{cursorPosition, setCursorPosition}}
+        >
             {children}
         </CursorContext.Provider>
     )
