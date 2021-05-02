@@ -18,7 +18,7 @@ const AnimatedText = ({children, animation}) => {
             <span 
                 key={i} 
                 className={`animated-text ${type}`}
-                style={{animationDelay: `${i / 50}s`}}
+                style={{animationDelay: `${i / 69}s`}}
             >
                     {item}
             </span>

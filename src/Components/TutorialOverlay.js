@@ -30,7 +30,7 @@ const TutorialOverlay = ({setTutorial}) => {
             onMouseMove={updateCursorPosition}
             className="flex-col"
         >
-            <HoverableButton rotate={true} setter={handleTutorial} />
+            <HoverableButton rotate={true} hoverHandler={handleTutorial} />
         </div>
     )
 }

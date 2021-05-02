@@ -200,7 +200,10 @@ footer {
 }
 
 .hoverable-button.active {
-  box-shadow: 0 0 0 0.6rem var(--color-main);
+  box-shadow: 
+    0 0 0.2rem 0.3rem var(--color-main),
+    0 0 0rem 0.4rem var(--color-bg),
+    0 0 0rem 0.6rem var(--color-emphasis);
 }
 
 .hoverable-button-decoration {
@@ -249,8 +252,8 @@ footer {
   left: 100%;
   background-color: #666;
   box-shadow: 
-    -0.2rem 0.2rem 0 0rem #555,
-    -0.4rem 0.4rem 0 0.1rem #444,
+    -0.2rem 0.2rem 0 0rem #488,
+    -0.4rem 0.4rem 0 0.1rem #366,
     -0.6rem 0.6rem 0 0.2rem #333,
     -0.8rem 0.8rem 0 0.3rem var(--color-bg);
 }
@@ -260,8 +263,8 @@ footer {
   right: 100%;
   background-color: #666;
   box-shadow: 
-    0.2rem -0.2rem 0 0rem #555,
-    0.4rem -0.4rem 0 0.1rem #444,
+    0.2rem -0.2rem 0 0rem #488,
+    0.4rem -0.4rem 0 0.1rem #366,
     0.6rem -0.6rem 0 0.2rem #333,
     0.8rem -0.8rem 0 0.5rem var(--color-bg);
 }
@@ -275,7 +278,7 @@ footer {
   height: calc(var(--hoverable-button-size) - 2rem);
   width: calc(var(--hoverable-button-size) - 2rem);
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 0rem 0.3rem #555;
+  box-shadow: 0 0 0rem 0.3rem rgb(39, 38, 38);
   mix-blend-mode: difference;
   z-index: 12;
   pointer-events: none;
@@ -283,7 +286,7 @@ footer {
 }
 
 #cursor.focused {
-  box-shadow: 0 0 0rem 0.4rem var(--color-emphasis);
+  box-shadow: 0 0 0rem 0.4rem var(--color-bg);
   transform: translate(0 , 0) scale(0.8);
 }
 

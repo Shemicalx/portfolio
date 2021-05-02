@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-const HoverableButton = ({setter, rotate, children}) => {
+const HoverableButton = ({hoverHandler, rotate, children}) => {
 
     const [ hovered, setHovered ] = useState(false);
     
     function handleHover(e) {
         setHovered(() => !hovered)
-        if(typeof setter == 'function'){
-            setter(e);
+        if(typeof hoverHandler == 'function'){
+            hoverHandler(e);
         } else {
             return
         }
@@ -21,11 +21,7 @@ const HoverableButton = ({setter, rotate, children}) => {
         >
             {children ? children : ''}
             <div 
-                className={`
-                    hoverable-button-decoration 
-                    ${hovered ? 'active' : ''}
-                    ${rotate ? 'rotate' : ''}    
-                `} 
+                className={`hoverable-button-decoration${hovered ? ' active' : ''}${rotate ? ' rotate' : ''}`} 
             />
         </button>
     )
