@@ -8,13 +8,16 @@ import ProjectsPage from './Components/ProjectsPage';
 import Sidebar from './Components/Sidebar';
 import TutorialOverlay from './Components/TutorialOverlay';
 import { CursorProvider } from './Contexts/CursorContext';
+import { DeviceContext } from './Contexts/DeviceContext';
+import useDeviceSize from './Hooks/useDeviceSize';
 
 function App() {
 
   const [ tutorial, setTutorial ] = useState(true);
+  const [ device, setDevice ] = useDeviceSize();
 
   //run tutorial on first load
-  if(tutorial) return (
+  if(tutorial && device !== 'small') return (
     <CursorProvider>
       <TutorialOverlay setTutorial={setTutorial} />
       <Cursor />
@@ -24,8 +27,9 @@ function App() {
   return (
     <Router>
       {/* need to figure out updates to cursor position */}
-      <CursorProvider>
-          <div className="app flex-col">
+      <DeviceContext.Provider value={{ device }}>
+        <CursorProvider>
+          <div className={`app flex-col ${device}`}>
             <Sidebar />
             <main className="flex-col">
               <Switch>
@@ -41,9 +45,10 @@ function App() {
               </Switch>
             </main>
             <footer className="flex-row">Made by Noam Shemi.</footer>
-            <Cursor />
+            {device !== 'small' && <Cursor />}
           </div>
-      </CursorProvider>
+        </CursorProvider>
+      </DeviceContext.Provider>
     </Router>
   );
 }

@@ -11,7 +11,6 @@ const AnimatedText = ({children, animation}) => {
         text = [children];
         type = 'words';
     }
-    console.log(text);
 
     return (
         text.map( (item, i) => (

@@ -5,7 +5,8 @@ const HoverableButton = ({hoverHandler, rotate, children}) => {
     const [ hovered, setHovered ] = useState(false);
     
     function handleHover(e) {
-        setHovered(() => !hovered)
+        if(e.type === 'mouseleave') setHovered(() => false);
+        if(e.type === 'mouseenter') setHovered(() => true);
         if(typeof hoverHandler == 'function'){
             hoverHandler(e);
         } else {

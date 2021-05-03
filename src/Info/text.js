@@ -10,5 +10,9 @@ export const aboutText = {
     How: {
         title: 'How?',
         paragraph: 'I am a curious and stubborn Front-end web developer.'
+    },
+    What: {
+        title: 'What?',
+        paragraph: 'I am a curious and stubborn Front-end web developer.'
     }
 };
