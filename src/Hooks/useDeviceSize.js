@@ -14,7 +14,8 @@ export default function useDeviceSize() {
 
     const checkScreenWidth = () => {
         let size = 'small';
-        if( window.innerWidth < 400 ) size = 'small';
+        if( window.innerWidth < 420 ) size = 'extra-small';
+        if( window.innerWidth >= 500 ) size = 'small';
         if( window.innerWidth >= 600 ) size = 'medium';
         if( window.innerWidth >= 830 ) size = 'large';
         return size;

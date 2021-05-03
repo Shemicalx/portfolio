@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import AnimatedText from './AnimatedText'
 import EmphasisedText from './EmphasisedText';
-import HoverableButton from './HoverableButton'
 import { aboutText } from '../Info/text'
 import { DeviceContext } from '../Contexts/DeviceContext';
+import HomePageButtons from './HomePageButtons';
+import Logo from './Logo';
 
 const HomePage = () => {
 
@@ -17,7 +18,7 @@ const HomePage = () => {
         if(typeof aboutText[hoveredButton] == 'object') update = aboutText[hoveredButton];
         if(typeof aboutText[hoveredButton] != 'object') update = aboutText['default'];
         setParagraph(()=> {
-            if(device === 'small'){
+            if(device === 'small' || device === 'extra-small'){
                 return aboutText.Who.paragraph
             }
             return update.paragraph
@@ -37,9 +38,9 @@ const HomePage = () => {
 
     return (
         <section id="home" className={`flex-col ${device}`}>
-            <h1>
+            <h1 id="home-title" className={`${device}`}>
                 <AnimatedText>
-                    Noam
+                    Noam 
                     <br/>
                     <EmphasisedText>
                         <AnimatedText>
@@ -49,20 +50,8 @@ const HomePage = () => {
                 </AnimatedText>
             </h1>
             {
-                device !== 'small' && (
-                    <ul id="home-buttons" className="flex-row">
-                        {
-                            ['Who', 'How', 'What'].map( (topic, i) => {
-                                return (
-                                    <li key={topic + i}>
-                                        <HoverableButton hoverHandler={handleButtonHover}>
-                                            {topic}
-                                        </HoverableButton>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
+                (device === 'medium' || device === 'large') && (
+                    <HomePageButtons handleButtonHover={handleButtonHover} />
                 )
             }
             <p className={device}>

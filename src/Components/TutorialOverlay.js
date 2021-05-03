@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { CursorContext } from '../Contexts/CursorContext';
+import AnimatedText from './AnimatedText';
+import EmphasisedText from './EmphasisedText';
 import HoverableButton from './HoverableButton';
 
 const TutorialOverlay = ({setTutorial}) => {
 
     const [ hover, setHover ] = useState(false);
-    const [counter, setCounter] = useState(1);
+    const [counter, setCounter] = useState(3);
     const { updateCursorPosition } = useContext(CursorContext);
 
     useEffect(()=> {
@@ -20,7 +22,7 @@ const TutorialOverlay = ({setTutorial}) => {
         }
         if( e.type === 'mouseleave') {
             setHover(()=> false);
-            setCounter(()=> 1);
+            setCounter(()=> 3);
         }
     }
 
@@ -28,9 +30,15 @@ const TutorialOverlay = ({setTutorial}) => {
         <div 
             id="tutorial" 
             onMouseMove={updateCursorPosition}
-            className="flex-col"
+            className="flex-row"
         >
-            <HoverableButton rotate={true} hoverHandler={handleTutorial} />
+            <HoverableButton rotate={true} hoverHandler={handleTutorial}>
+                <EmphasisedText>
+                    <AnimatedText>
+                        { counter === 3 ? 'Hover' : <span style={{'fontSize': '2.2rem'}}>{counter}</span>}
+                    </AnimatedText>
+                </EmphasisedText>
+            </HoverableButton>
         </div>
     )
 }

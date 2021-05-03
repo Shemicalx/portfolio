@@ -7,12 +7,12 @@ export const aboutText = {
         title: 'Who?',
         paragraph: 'I am a curiously stubborn and stubbornly curious Web Developer. I\'m fueled by my desire to learn and I like cool looking things.'
     },
-    How: {
-        title: 'How?',
-        paragraph: 'I am a curious and stubborn Front-end web developer.'
-    },
     What: {
         title: 'What?',
-        paragraph: 'I am a curious and stubborn Front-end web developer.'
-    }
+        paragraph: 'Left-click the button you\'re hovering over to see some of my favorite projects.'
+    },
+    Where: {
+        title: 'Where?',
+        paragraph: 'I\'d love to hear from you! Click the button you\'re hovering over to keep in touch!'
+    },
 };

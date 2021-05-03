@@ -17,7 +17,7 @@ function App() {
   const [ device, setDevice ] = useDeviceSize();
 
   //run tutorial on first load
-  if(tutorial && device !== 'small') return (
+  if(tutorial && (device === 'medium' || device === 'large')) return (
     <CursorProvider>
       <TutorialOverlay setTutorial={setTutorial} />
       <Cursor />
@@ -44,8 +44,8 @@ function App() {
                 </Route>
               </Switch>
             </main>
-            <footer className="flex-row">Made by Noam Shemi.</footer>
-            {device !== 'small' && <Cursor />}
+            <footer className="flex-row">© 2021 Noam Shemi. All Rights Reserved.</footer>
+            {(device === 'medium' || device === 'large') && <Cursor />}
           </div>
         </CursorProvider>
       </DeviceContext.Provider>
