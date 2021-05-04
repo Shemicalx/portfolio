@@ -12,15 +12,15 @@ const HomePageButtons = ({handleButtonHover}) => {
             </li>
             <li>
                 <HoverableButton hoverHandler={handleButtonHover}>
-                    <Link className='hoverable-link' to='/projects'>
-                        What
+                    <Link className='hoverable-link' to='/contact'>
+                        Where
                     </Link>
                 </HoverableButton>
             </li>
             <li>
                 <HoverableButton hoverHandler={handleButtonHover}>
-                    <Link className='hoverable-link' to='/contact'>
-                        Where
+                    <Link className='hoverable-link' to='/projects'>
+                        What
                     </Link>
                 </HoverableButton>
             </li>

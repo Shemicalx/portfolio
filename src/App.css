@@ -61,7 +61,10 @@ body {
 }
 
 main {
+  position: relative;
+  height: 100vh;
   width: calc(100vw  - var(--sidebar-width));
+  justify-content: flex-start;
 }
 
 main.small, main.extra-small {
@@ -69,6 +72,8 @@ main.small, main.extra-small {
 }
 
 main > section {
+  position: absolute;
+  top: 0;
   height: calc(100vh - var(--footer-height));
   width: 100%;
 }
@@ -244,19 +249,20 @@ footer {
 }
 
 #projects {
-  --title-height: 5rem;
   --projects: 2;
 }
 
 #projects > h2 {
   font-size: 3rem;
-  margin: 1rem 0;
+  overflow-y: hidden;
+  line-height: 5rem;
+  margin-bottom: 1rem;
 }
 
 .project-container {
   justify-content: space-between;
   width: 100%;
-  height: calc((100vh - var(--title-height) - var(--footer-height)) / var(--projects));
+  height: calc((100vh - var(--footer-height)) / var(--projects));
 }
 
 .project-container > * {
@@ -264,16 +270,23 @@ footer {
   text-align: center;
 }
 
-.project-container > *:last-child {
-  margin-right: 2rem;
-}
-
 .project-container > h3 {
+  height: 100%;
+  background-color: var(--color-emphasis);
   font-size: 4rem;
+  color: var(--color-bg);
+  border-radius: 0.4rem;
 }
 
-.project-container > p {
-  font-size: 2rem;
+.projects-info {
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.projects-info > p {
+  font-size: 2.6rem;
+  width: 50%;
+  overflow-y: hidden;
 }
 
 .hoverable-button {
