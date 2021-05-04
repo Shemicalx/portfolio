@@ -1,16 +1,23 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { DeviceContext } from '../Contexts/DeviceContext';
-import EmphasisedText from './EmphasisedText';
+import HoverableButton from './HoverableButton';
 import Logo from './Logo';
 import SidebarNavLinks from './SidebarNavLinks';
 
 const Sidebar = () => {
 
     const [ mode, setMode ] = useState('');
+    const [ logoMode, setLogoMode] = useState('');
     const { device } = useContext(DeviceContext);
 
-    function handleHover(e) {
-        setMode(()=> {
+    useEffect(()=> {
+        if(device === 'large' || device === 'medium') setMode(()=> 'active');
+        if(device === 'small' || device === 'extra-small') setMode(()=> '');
+    }, [device])
+
+    function logoHoverHandler (e) {
+        setLogoMode(() => {
             return e.type === 'mouseenter' ? 'active' : ''
         })
     }
@@ -19,15 +26,18 @@ const Sidebar = () => {
         <div 
             id="sidebar" 
             className={`flex-col ${mode} ${device}`}
-            onMouseEnter={handleHover}
-            onMouseLeave={handleHover}
         >
+            <HoverableButton 
+                rotate={true} 
+                size={'small'}
+                hoverHandler={logoHoverHandler}
+            >
+                <Link className='hoverable-link' to='/'>
+                    <Logo mode={logoMode} />
+                </Link>
+            </HoverableButton>
         {
-            mode === 'active' ? (
-                <SidebarNavLinks />
-            ) : (
-                <Logo />
-            )
+            mode === 'active' && <SidebarNavLinks />
         }
         </div>
     )

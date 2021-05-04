@@ -31,7 +31,7 @@ function App() {
         <CursorProvider>
           <div className={`app flex-col ${device}`}>
             <Sidebar />
-            <main className="flex-col">
+            <main className={`flex-col ${device}`}>
               <Switch>
                 <Route path="/projects">
                   <ProjectsPage />

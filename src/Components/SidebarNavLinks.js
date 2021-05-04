@@ -1,18 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import EmphasisedText from './EmphasisedText'
 
 const SidebarNavLinks = () => {
     return (
         <nav>
-            <ul>
+            <ul className="flex-col">
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">
+                        <EmphasisedText>
+                            About
+                        </EmphasisedText>
+                    </Link>
                 </li>
                 <li>
-                    <Link to="/projects">Projects</Link>
+                    <Link to="/projects">
+                        <EmphasisedText>
+                            Projects
+                        </EmphasisedText>
+                    </Link>
                 </li>
                 <li>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/contact">
+                        <EmphasisedText>
+                            Contact
+                        </EmphasisedText>
+                    </Link>
                 </li>
             </ul>
         </nav>
