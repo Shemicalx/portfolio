@@ -203,11 +203,11 @@ footer {
 
 #home-title {
   font-size: var(--main-header-size);
-  overflow-y: hidden;
   width: 10ch;
   text-align: center;
   margin-top: 3.2rem;
   margin-bottom: 3.2rem;
+  overflow-y: hidden;
   transition: all 0.2s;
 }
 
@@ -289,16 +289,117 @@ footer {
   overflow-y: hidden;
 }
 
+#contact {
+  justify-content: space-evenly;
+}
+
+#contact > h2 {
+  font-size: calc(var(--main-header-size) / 1.5);
+  text-align: center;
+  overflow-y: hidden;
+}
+
+#contact-options {
+  justify-content: space-evenly;
+  width: 100%;
+  max-height: 75%;
+  max-width: 1000px;
+}
+
+#contact-options.small, #contact-options.extra-small {
+  height: 100%;
+}
+
+#contact address {
+  justify-content: space-evenly;
+}
+
+#contact address > .hoverable-button:nth-child(2n) {
+  margin: calc(var(--hoverable-button-size) / 2);
+}
+
+#contact form {
+  position: relative;
+}
+
+#contact fieldset {
+  border: 0.2rem solid var(--color-main);
+  box-sizing: border-box;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: var(--color-bg);
+}
+
+#contact fieldset > legend {
+  font-size: calc(var(--hoverable-button-size) / 3);
+  margin-left: 1rem;
+  padding: 0 1rem;
+  overflow-y: hidden;
+}
+
+#contact fieldset ~ button {
+  position: absolute; 
+  top: calc(100% - var(--hoverable-button-size) / 1.4);
+  left: calc(100% - var(--hoverable-button-size) / 1.4);
+  transition: all 0.25s;
+}
+
+#mailInput {
+  height: calc(var(--hoverable-button-size) * 3 + 4rem);
+  width: 100%;
+  box-shadow: 0 0 0 0.1rem var(--color-main);
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 0.4rem;
+  font-size: 1.8rem;
+  padding: 0.6rem;
+  background-color: var(--color-bg);
+  resize: none;
+}
+
+#mailInput.small, #mailInput.extra-small {
+  font-size: 1rem;
+  height: calc(var(--hoverable-button-size) * 3);
+}
+
+#mailInput.large {
+  font-size: 2rem;
+  height: calc(var(--hoverable-button-size) * 3 + 4rem);
+  width: calc(var(--hoverable-button-size) * 5);
+}
+
+#emailInput {
+  width: 100%;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 0 0.1rem var(--color-main);
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 0.4rem;
+  font-size: 1.8rem;
+  padding: 0.6rem;
+  background-color: var(--color-bg);
+}
+
+#emailInput.small, #emailInput.extra-small {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
 .hoverable-button {
   position: relative;
   height: var(--hoverable-button-size);
   width: var(--hoverable-button-size);
+  font-size: calc(var(--hoverable-button-size) / 3.5);
   border: none;
   outline: none;
   background-color: var(--color-bg);
   border-radius: 50%;
   box-shadow: 0 0 0 0.2rem var(--color-main);
-  transition: all 0.6s;
+  cursor: pointer;
+  transition: all 0.6s, text-shadow 0.3s;
+  animation: buttonExpand 0.4s;
   z-index: 13;
 }
 
@@ -308,6 +409,7 @@ footer {
 
 .hoverable-link {
   display: flex;
+  font-size: calc(var(--hoverable-button-size) / 3.5);
   justify-content: center;
   align-items: center;
   color: var(--color-main);
@@ -315,6 +417,7 @@ footer {
   margin-top: auto;
   width: var(--hoverable-button-size);
   height: var(--hoverable-button-size);
+  transition: text-shadow 0.3s;
 }
 
 .hoverable-button.active {
@@ -338,16 +441,19 @@ footer {
   position: absolute;
   bottom: 75%;
   left: 75%;
+  /* Show's after fade in animation */
+  opacity: 0;
   background-color: var(--color-main);
   height: calc(var(--hoverable-button-size) / 6);
   width: calc(var(--hoverable-button-size) / 6);
   border-top-left-radius: 25%;
   border-bottom-right-radius: 25%;
+  animation: decorationFade 0.3s 0.5s forwards;
   box-shadow: 
-    0rem 0rem 0 0rem #555,
-    0rem 0rem 0 0rem #444,
-    0rem 0rem 0 0rem #333,
-    0rem 0rem 0 0.2rem var(--color-bg);
+  0rem 0rem 0 0rem #555,
+  0rem 0rem 0 0rem #444,
+  0rem 0rem 0 0rem #333,
+  0rem 0rem 0 0.2rem var(--color-bg);
   transition: bottom 0.4s, left 0.4s, box-shadow 0.4s, background-color 0.4s;
 }
 
@@ -356,11 +462,14 @@ footer {
   position: absolute;
   top: 75%;
   right: 75%;
+  /* Show's after fade in animation */
+  opacity: 0;
   background-color: var(--color-main);
   height: calc(var(--hoverable-button-size) / 6);
   width: calc(var(--hoverable-button-size) / 6);
   border-top-left-radius: 25%;
   border-bottom-right-radius: 25%;
+  animation: decorationFade 0.3s 0.5s forwards;
   box-shadow: 
     0rem 0rem 0 0rem #555,
     0rem 0rem 0 0rem #444,
@@ -425,6 +534,34 @@ footer {
   }
 }
 
+@keyframes buttonExpand {
+  from {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+  30% { 
+    overflow: hidden;
+  }
+  60% { 
+    overflow: hidden;
+  }
+  80% {
+    overflow: hidden;
+  }
+}
+
+@keyframes decorationFade {
+  from {
+    width: 0;
+    height: 0;
+    transform: rotate(135deg);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* TEXT-ANIMATIONS */
 
 .emphasised-text {
@@ -454,3 +591,5 @@ footer {
     transform: translate(0, 0);
   }
 }
+
+

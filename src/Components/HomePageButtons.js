@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import HoverableButton from './HoverableButton'
+import HoverableLink from './HoverableLink'
 
 const HomePageButtons = ({handleButtonHover}) => {
     return (
@@ -11,18 +11,14 @@ const HomePageButtons = ({handleButtonHover}) => {
                 </HoverableButton>
             </li>
             <li>
-                <HoverableButton hoverHandler={handleButtonHover}>
-                    <Link className='hoverable-link' to='/contact'>
-                        Where
-                    </Link>
-                </HoverableButton>
+                <HoverableLink hoverHandler={handleButtonHover} to='/contact'>
+                    Where
+                </HoverableLink>
             </li>
             <li>
-                <HoverableButton hoverHandler={handleButtonHover}>
-                    <Link className='hoverable-link' to='/projects'>
-                        What
-                    </Link>
-                </HoverableButton>
+                <HoverableLink hoverHandler={handleButtonHover} to='/projects'>
+                    What
+                </HoverableLink>
             </li>
         </ul>
     )

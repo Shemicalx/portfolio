@@ -14,7 +14,7 @@ import useDeviceSize from './Hooks/useDeviceSize';
 function App() {
 
   const [ tutorial, setTutorial ] = useState(true);
-  const [ device, setDevice ] = useDeviceSize();
+  const [ device ] = useDeviceSize();
 
   //run tutorial on first load
   if(tutorial && (device === 'medium' || device === 'large')) return (

@@ -9,7 +9,7 @@ const SidebarNavLinks = () => {
                 <li>
                     <Link to="/">
                         <EmphasisedText>
-                            About
+                            Home
                         </EmphasisedText>
                     </Link>
                 </li>

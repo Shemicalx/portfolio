@@ -9,7 +9,6 @@ export default function useCursorPosition () {
 
     const updatePosition = (e) => {
         if(/hoverable-button |hoverable-link/.test(e.target.className)){
-            console.log(e.currentTarget);
             setCursorPosition(()=> {
                 const {x, y, height, width} = e.target.getBoundingClientRect();
                 return {x, y, height, width, focused: true};

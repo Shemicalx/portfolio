@@ -5,6 +5,7 @@ import { aboutText } from '../Info/text'
 import { DeviceContext } from '../Contexts/DeviceContext';
 import HomePageButtons from './HomePageButtons';
 import Logo from './Logo';
+import HoverableLink from './HoverableLink';
 
 const HomePage = () => {
 
@@ -51,14 +52,27 @@ const HomePage = () => {
             </h1>
             {
                 (device === 'medium' || device === 'large') && (
+                    //gotta clean up and mix with the thing in line 65
                     <HomePageButtons handleButtonHover={handleButtonHover} />
-                )
+                ) 
             }
             <p className={device}>
                 <AnimatedText>
                     {paragraph}
                 </AnimatedText>
             </p>
+            {
+                (device === 'small' || device === 'extra-small') && (
+                    <div className='flex-row'>
+                        <HoverableLink to="/projects">
+                            Projects
+                        </HoverableLink>
+                        <HoverableLink to="/contact">
+                            Contact
+                        </HoverableLink>
+                    </div>
+                )
+            }
         </section>
     )
 }
