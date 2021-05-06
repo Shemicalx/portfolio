@@ -274,6 +274,10 @@ footer {
   height: calc((100vh - var(--footer-height)) / var(--projects));
 }
 
+.project-container.reverse, .projects-info.reverse {
+  flex-direction: row-reverse;
+}
+
 .project-container > * {
   width: 100%;
   text-align: center;
