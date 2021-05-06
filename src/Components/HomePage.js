@@ -41,7 +41,9 @@ const HomePage = () => {
         <section id="home" className={`flex-col ${device}`}>
             <h1 id="home-title" className={`${device}`}>
                 <AnimatedText>
-                    Noam 
+                    <span>
+                        Noam 
+                    </span>
                     <br/>
                     <EmphasisedText>
                         <AnimatedText>
@@ -52,25 +54,32 @@ const HomePage = () => {
             </h1>
             {
                 (device === 'medium' || device === 'large') && (
-                    //gotta clean up and mix with the thing in line 65
-                    <HomePageButtons handleButtonHover={handleButtonHover} />
+                    <HomePageButtons handleButtonHover={handleButtonHover}>
+                        {
+                            [
+                                ['Who', '/'],
+                                ['Where', '/contact'],
+                                ['What', '/projects'],
+                            ]
+                        }
+                    </HomePageButtons>
                 ) 
             }
-            <p className={device}>
+            <p className={`${device} ${hoveredButton}-display`}>
                 <AnimatedText>
                     {paragraph}
                 </AnimatedText>
             </p>
             {
                 (device === 'small' || device === 'extra-small') && (
-                    <div className='flex-row'>
-                        <HoverableLink to="/projects">
-                            Projects
-                        </HoverableLink>
-                        <HoverableLink to="/contact">
-                            Contact
-                        </HoverableLink>
-                    </div>
+                    <HomePageButtons>
+                        {
+                            [
+                                ['Projects', '/projects'],
+                                ['Contact', '/contact'],
+                            ]
+                        }
+                    </HomePageButtons>
                 )
             }
         </section>

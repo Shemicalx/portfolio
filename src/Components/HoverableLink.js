@@ -7,7 +7,10 @@ const HoverableLink = ({children, hoverHandler, to}) => {
     if(!to) return <></>;
 
     return (
-        <HoverableButton hoverHandler={hoverHandler}>
+        <HoverableButton 
+            hoverHandler={hoverHandler} 
+            // rotate={true}
+        >
             {
                 to[0] === '/' ? (
                     <Link className='hoverable-link' to={to}>

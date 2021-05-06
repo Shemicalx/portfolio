@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const EmphasisedText = ({children}) => {
+
+    const [ isHovered, setIsHovered ] = useState(false);
+
+    function handleHover(e) {
+        //add when hover animations are wanted
+        // if(e.type === 'mouseenter') setIsHovered(()=> true);
+        if(e.type === 'mouseleave') setIsHovered(()=> false);
+    }
+
     return (
-        <span className="emphasised-text">
+        <span 
+            className={`emphasised-text${isHovered ? ' underline' : ''}`}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleHover}
+        >
             {children}
         </span>
     )

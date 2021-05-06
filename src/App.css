@@ -206,13 +206,17 @@ footer {
   width: 10ch;
   text-align: center;
   margin-top: 3.2rem;
-  margin-bottom: 3.2rem;
   overflow-y: hidden;
   transition: all 0.2s;
 }
 
-#home-title.large {
-  text-indent: calc(-1 * var(--main-header-size));
+#home-title.large > span > span:first-child {
+  display: inline-block ;
+  transform: translate(calc(var(--main-header-size) / 2 * (-1)), 0);
+}
+
+#home-title.large > span > span:last-child {
+  display: inline-block ;
   transform: translate(calc(var(--main-header-size) / 2), 0);
 }
 
@@ -222,21 +226,26 @@ footer {
 
 #home > p {
   text-align: center;
-  margin-top: 4rem;
+  margin-top: 5rem;
   font-size: 2.6rem;
   width: 80%;
   max-width: 40ch;
 }
 
+#home > p.default-display {
+  font-size: calc(var(--main-header-size) / 2.5);
+}
+
 #home > p.small, #home > p.extra-small {
+  margin-top: 1rem;
   font-size: 2rem;
-  margin: 0;
 }
 
 #home-buttons {
   justify-content: space-evenly;
   list-style: none;
   width: 100%;
+  margin-top: 3.2rem;
   max-width: 1000px;
 }
 
@@ -539,6 +548,7 @@ footer {
     height: 0;
     width: 0;
     overflow: hidden;
+    pointer-events: none;
   }
   30% { 
     overflow: hidden;
@@ -548,6 +558,7 @@ footer {
   }
   80% {
     overflow: hidden;
+    pointer-events: none;
   }
 }
 
@@ -565,7 +576,51 @@ footer {
 /* TEXT-ANIMATIONS */
 
 .emphasised-text {
+  position: relative;
+  display: inline-block;
   color: var(--color-emphasis);
+  transition: all 0.2s;
+}
+
+.emphasised-text::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  opacity: 0;
+  height: 0.4ch;
+  width: 0.4ch;
+  border-top-right-radius: 0.1ch;
+  border-bottom-left-radius: 0.1ch;
+  background-color: var(--color-emphasis);
+  box-shadow: 
+  0.02ch 0.02ch 0 #577,
+  0.06ch 0.06ch 0 #488;
+  transform: translate(-50%, 0%);
+  transition: all 0.2s;
+}
+
+.emphasised-text::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.1ch;
+  width: 0;
+  margin-left: 50%;
+  border-radius: 5px;
+  background-color: var(--color-emphasis);
+  transition: all 0.2s;
+}
+
+.emphasised-text.underline::after {
+  opacity: 1;
+  transform: translate(-50%, 125%) rotate(45deg);
+}
+
+.emphasised-text.underline::before {
+  width: 100%;
+  margin-left: 0;
 }
 
 .animated-text.characters {
@@ -591,5 +646,3 @@ footer {
     transform: translate(0, 0);
   }
 }
-
-

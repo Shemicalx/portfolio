@@ -68,6 +68,7 @@ const ContactPage = () => {
                             type="email" 
                             name="email" 
                             placeholder="Email" 
+                            autoComplete="off"
                             required 
                         />
                         <label htmlFor="message" />
