@@ -7,14 +7,14 @@ const EmphasisedText = ({children}) => {
     function handleHover(e) {
         //add when hover animations are wanted
         // if(e.type === 'mouseenter') setIsHovered(()=> true);
-        if(e.type === 'mouseleave') setIsHovered(()=> false);
+        // if(e.type === 'mouseleave') setIsHovered(()=> false);
     }
 
     return (
         <span 
-            className={`emphasised-text${isHovered ? ' underline' : ''}`}
-            onMouseEnter={handleHover}
-            onMouseLeave={handleHover}
+            className={`emphasised-text`}
+            // onMouseEnter={handleHover}
+            // onMouseLeave={handleHover}
         >
             {children}
         </span>

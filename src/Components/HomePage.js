@@ -4,8 +4,6 @@ import EmphasisedText from './EmphasisedText';
 import { aboutText } from '../Info/text'
 import { DeviceContext } from '../Contexts/DeviceContext';
 import HomePageButtons from './HomePageButtons';
-import Logo from './Logo';
-import HoverableLink from './HoverableLink';
 
 const HomePage = () => {
 

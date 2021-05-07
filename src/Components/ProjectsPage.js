@@ -22,6 +22,7 @@ const ProjectsPage = () => {
                 title="Typogrid"
                 description="A font finding and customizing tool for creators"
                 reverse={true}
+                to="https://typogrid.netlify.app/"
             />
         </section>
     )

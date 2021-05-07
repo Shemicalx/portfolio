@@ -283,12 +283,66 @@ footer {
   text-align: center;
 }
 
-.project-container > h3 {
+.project-title {
+  position: relative;
   height: 100%;
   background-color: var(--color-emphasis);
-  font-size: 4rem;
+  overflow: hidden;
+}
+
+.project-title > a {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  font-size: calc(var(--main-header-size) / 1.9);
   color: var(--color-bg);
-  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.project-title > a::after {
+  content: '';
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  opacity: 0;
+  height: 0.4ch;
+  width: 0.4ch;
+  border-top-right-radius: 0.1ch;
+  border-bottom-left-radius: 0.1ch;
+  background-color: var(--color-bg);
+  box-shadow: 
+  0.02ch 0.02ch 0 #577,
+  0.06ch 0.06ch 0 #488;
+  transform: translate(-50%, 0%);
+  transition: all 0.2s;
+}
+
+.project-title > a::before {
+  content: '';
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  height: 0.1ch;
+  width: 0;
+  border-radius: 5px;
+  background-color: var(--color-bg);
+  overflow: hidden;
+  transform: translate(-50%, 1.5ch);
+  transition: all 0.2s;
+}
+
+.project-title > a:hover {
+  font-size: calc(var(--main-header-size) / 1.7);
+}
+
+.project-title > a:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -1ch) rotate(45deg);
+}
+
+.project-title > a:hover::before {
+  width: 33%;
 }
 
 .projects-info {
@@ -297,7 +351,7 @@ footer {
 }
 
 .projects-info > p {
-  font-size: 2.6rem;
+  font-size: calc(var(--main-header-size) / 4);
   width: 50%;
   overflow-y: hidden;
 }
@@ -584,47 +638,6 @@ footer {
   display: inline-block;
   color: var(--color-emphasis);
   transition: all 0.2s;
-}
-
-.emphasised-text::after {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  opacity: 0;
-  height: 0.4ch;
-  width: 0.4ch;
-  border-top-right-radius: 0.1ch;
-  border-bottom-left-radius: 0.1ch;
-  background-color: var(--color-emphasis);
-  box-shadow: 
-  0.02ch 0.02ch 0 #577,
-  0.06ch 0.06ch 0 #488;
-  transform: translate(-50%, 0%);
-  transition: all 0.2s;
-}
-
-.emphasised-text::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 0.1ch;
-  width: 0;
-  margin-left: 50%;
-  border-radius: 5px;
-  background-color: var(--color-emphasis);
-  transition: all 0.2s;
-}
-
-.emphasised-text.underline::after {
-  opacity: 1;
-  transform: translate(-50%, 125%) rotate(45deg);
-}
-
-.emphasised-text.underline::before {
-  width: 100%;
-  margin-left: 0;
 }
 
 .animated-text.characters {
