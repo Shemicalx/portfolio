@@ -12,8 +12,8 @@ const ProjectContainer = ({title, description, tech, to, reverse}) => {
     //need to add tech feature
 
     return (
-        <div className={`project-container flex-row${reverse ? ' reverse' : ''}`}>
-            <h3 className={`project-title`}>
+        <div className={`project-container flex-row${reverse ? ' reverse' : ' normal'} ${device}`}>
+            <h3 className={`project-title${reverse ? ' reverse' : ' normal'}`}>
                 <a 
                     className={`flex-row ${device}`}
                     href={to || '#'} 
@@ -25,7 +25,7 @@ const ProjectContainer = ({title, description, tech, to, reverse}) => {
                     </AnimatedText>
                 </a>
             </h3>
-            <div className={`projects-info flex-row${reverse ? ' reverse' : ''}`}>
+            <div className={`project-info flex-row${reverse ? ' reverse' : ' normal'}`}>
                 <p className={device}>
                     <AnimatedText>
                         {description}

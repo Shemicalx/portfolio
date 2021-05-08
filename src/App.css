@@ -54,8 +54,8 @@ body {
 
 .app {
   position: relative;
-  height: 100vh;
-  width: 100vw;
+  /* height: auto; */
+  width: 100%;
   align-items: flex-end;
   overflow-x: hidden;
 }
@@ -262,10 +262,10 @@ footer {
 }
 
 #projects > h2 {
-  font-size: 3rem;
+  font-size: 5rem;
   overflow-y: hidden;
-  line-height: 5rem;
-  margin-bottom: 1rem;
+  line-height: 10rem;
+  margin-bottom: 2rem;
 }
 
 .project-container {
@@ -274,7 +274,16 @@ footer {
   height: calc((100vh - var(--footer-height)) / var(--projects));
 }
 
-.project-container.reverse, .projects-info.reverse {
+.project-container:last-child {
+  margin-bottom: 2rem;
+}
+
+.project-container.large {
+  width: 50%;
+  min-width: 40rem;
+}
+
+.project-container.reverse, .project-info.reverse {
   flex-direction: row-reverse;
 }
 
@@ -286,16 +295,84 @@ footer {
 .project-title {
   position: relative;
   height: 100%;
-  background-color: var(--color-emphasis);
-  overflow: hidden;
+}
+
+.project-title.normal {
+  border-bottom-right-radius: 50%;
+  box-shadow: 0.2rem 0.2rem 0 0.2rem var(--color-main);
+}
+
+.project-title.normal::after {
+  content: '';
+  position: absolute;
+  color: var(--color-main);
+  bottom: 0;
+  left: 0%;
+  width: 0.6rem;
+  height: 0.6rem;
+  box-shadow: 
+    0 0 0 0.15rem currentColor,
+    0 0 0 0.3rem var(--color-bg),
+    0.8rem 0.8rem 0 0.2rem currentColor,
+    -0.8rem -0.8rem 0 0rem currentColor;
+  background-color: var(--color-bg);
+  transform: translate(0, calc(50% + 0.2rem)) rotate(-45deg);
+}
+
+.project-title.normal::before {
+  content: '';
+  position: absolute;
+  color: var(--color-main);
+  top: 0;
+  right: 0;
+  width: 1rem;
+  height: 0.4rem;
+  box-shadow: 0 0 0 0.2rem var(--color-bg);
+  background-color: var(--color-main);
+  transform: translate(calc(50% + 0.2rem), 0) ;
+}
+
+.project-title.reverse {
+  border-top-left-radius: 50%;
+  box-shadow: -0.2rem -0.2rem 0 0.2rem var(--color-main);
+}
+
+.project-title.reverse::after {
+  content: '';
+  position: absolute;
+  color: var(--color-main);
+  top: 0;
+  right: 0;
+  width: 0.6rem;
+  height: 0.6rem;
+  box-shadow: 
+    0 0 0 0.15rem currentColor,
+    0 0 0 0.3rem var(--color-bg),
+    0.8rem 0.8rem 0 0.2rem currentColor,
+    -0.8rem -0.8rem 0 0rem currentColor;
+  background-color: var(--color-bg);
+  transform: translate(0, calc(-50% - 0.2rem)) rotate(135deg);
+}
+
+.project-title.reverse::before {
+  content: '';
+  position: absolute;
+  color: var(--color-main);
+  bottom: 0;
+  left: 0;
+  width: 1rem;
+  height: 0.4rem;
+  box-shadow: 0 0 0 0.2rem var(--color-bg);
+  background-color: var(--color-main);
+  transform: translate(calc(-50% - 0.2rem), 0);
 }
 
 .project-title > a {
   display: flex;
   height: 100%;
   width: 100%;
-  font-size: calc(var(--main-header-size) / 1.9);
-  color: var(--color-bg);
+  font-size: calc(var(--main-header-size) / 2.2);
+  color: var(--color-emphasis);
   text-decoration: none;
   transition: all 0.2s;
 }
@@ -310,7 +387,7 @@ footer {
   width: 0.4ch;
   border-top-right-radius: 0.1ch;
   border-bottom-left-radius: 0.1ch;
-  background-color: var(--color-bg);
+  background-color: var(--color-emphasis);
   box-shadow: 
   0.02ch 0.02ch 0 #577,
   0.06ch 0.06ch 0 #488;
@@ -326,7 +403,7 @@ footer {
   height: 0.1ch;
   width: 0;
   border-radius: 5px;
-  background-color: var(--color-bg);
+  background-color: var(--color-emphasis);
   overflow: hidden;
   transform: translate(-50%, 1.5ch);
   transition: all 0.2s;
@@ -345,15 +422,23 @@ footer {
   width: 33%;
 }
 
-.projects-info {
+.project-info {
   justify-content: space-evenly;
   height: 100%;
 }
 
-.projects-info > p {
+.project-info > p {
   font-size: calc(var(--main-header-size) / 4);
   width: 50%;
   overflow-y: hidden;
+}
+
+.project-info > p.medium {
+  font-size: calc(var(--main-header-size) / 6);
+}
+
+.project-info > p.large {
+  font-size: calc(var(--main-header-size) / 5);
 }
 
 #contact {
@@ -516,6 +601,7 @@ footer {
   border-top-left-radius: 25%;
   border-bottom-right-radius: 25%;
   animation: decorationFade 0.3s 0.5s forwards;
+  transform: translate(0.1rem, -0.1rem);
   box-shadow: 
   0rem 0rem 0 0rem #555,
   0rem 0rem 0 0rem #444,
@@ -537,6 +623,7 @@ footer {
   border-top-left-radius: 25%;
   border-bottom-right-radius: 25%;
   animation: decorationFade 0.3s 0.5s forwards;
+  transform: translate(-0.1rem, 0.1rem);
   box-shadow: 
     0rem 0rem 0 0rem #555,
     0rem 0rem 0 0rem #444,
