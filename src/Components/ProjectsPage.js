@@ -14,13 +14,14 @@ const ProjectsPage = () => {
 
             <ProjectContainer 
                 title='Memopa'
-                description="A memory-mapping and mnemonic converting SaaS"
-
+                description="A memory-mapping and mnemonic converting SaaS."
+                tech="HTML, CSS, JavaScript, React | Hooks | Context API, Express.js, MongoDB, Firebase."
             />
 
             <ProjectContainer
                 title="Typogrid"
-                description="A font finding and customizing tool for creators"
+                description="A font finding and customizing tool for creators."
+                tech="HTML, CSS, JavaScript, React, Google-Fonts API."
                 reverse={true}
                 to="https://typogrid.netlify.app/"
             />

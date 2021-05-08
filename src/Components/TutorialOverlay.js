@@ -7,14 +7,34 @@ import HoverableButton from './HoverableButton';
 const TutorialOverlay = ({setTutorial}) => {
 
     const [ hover, setHover ] = useState(false);
-    const [counter, setCounter] = useState(3);
+    const [ hoverCounter, setHoverCounter ] = useState(3);
+    const [ text, setText ] = useState(0);
     const { updateCursorPosition } = useContext(CursorContext);
 
+    const textKey = [
+        'Hi there!',
+        '',
+        'Hover the following button',
+        '',
+    ]
+
+    useEffect(() => {
+        if(text < textKey.length) {
+            if(text % 2) {
+                const textTimer = setInterval(() => setText(()=> text + 1), 700);
+                return () => clearInterval(textTimer);
+            } else {
+                const textTimer = setInterval(() => setText(()=> text + 1), 2000);
+                return () => clearInterval(textTimer);
+            }
+        }
+      },[text]);
+
     useEffect(()=> {
-        const hoverTimer = counter > 0 && hover && setInterval(() => setCounter(counter - 1), 1000);
-        if(!counter) setTutorial(() => false);
+        const hoverTimer = hoverCounter > 0 && hover && setInterval(() => setHoverCounter(hoverCounter - 1), 1000);
+        if(!hoverCounter) setTutorial(() => false);
         return () => clearInterval(hoverTimer);
-    },[counter, hover]);
+    },[hoverCounter, hover]);
 
     function handleTutorial(e) {
         if( e.type === 'mouseenter') {
@@ -22,24 +42,35 @@ const TutorialOverlay = ({setTutorial}) => {
         }
         if( e.type === 'mouseleave') {
             setHover(()=> false);
-            setCounter(()=> 3);
+            setHoverCounter(()=> 3);
         }
     }
 
     return (
-        <div 
+        <main 
             id="tutorial" 
             onMouseMove={updateCursorPosition}
-            className="flex-row"
+            className="flex-col"
         >
-            <HoverableButton rotate={true} hoverHandler={handleTutorial}>
-                <EmphasisedText>
-                    <AnimatedText>
-                        { counter === 3 ? 'Hover' : <span style={{'fontSize': '2.2rem'}}>{counter}</span>}
-                    </AnimatedText>
-                </EmphasisedText>
-            </HoverableButton>
-        </div>
+            <h1>
+                <AnimatedText>
+                    { textKey[text] }
+                </AnimatedText>
+            </h1>
+            {
+                text >= textKey.length ? (
+                <HoverableButton rotate={true} hoverHandler={handleTutorial} size="large">
+                    <EmphasisedText>
+                        <AnimatedText>
+                            { hoverCounter === 3 ? 'Hover' : `${hoverCounter}`}
+                        </AnimatedText>
+                    </EmphasisedText>
+                </HoverableButton>
+                ) : (
+                    null
+                )
+            }
+        </main>
     )
 }
 

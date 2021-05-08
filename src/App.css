@@ -24,13 +24,20 @@ body {
 }
 
 #tutorial {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   height: 100vh;
   width: 100vw;
   background-color: var(--color-bg);
   transition: all 0.3s;
+}
+
+#tutorial > h1 {
+  position: absolute;
+  font-size: calc(var(--main-header-size) / 2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 1rem;
 }
 
 #tutorial button > * {
@@ -106,6 +113,18 @@ main > section {
   border-radius: 0;
   border-right: 0.2rem solid var(--color-main);
   height: 100vh;
+}
+
+#sidebar.active::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  bottom: var(--footer-height);
+  height: 0.4rem;
+  width: 0.4rem;
+  background-color: var(--color-emphasis);
+  box-shadow: 0 0 0 0.2rem var(--color-bg), 0 0 0 0.3rem var(--color-main);
+  transform: translate(calc(-50% + 0.1rem), 0.1rem) rotate(45deg);
 }
 
 #sidebar > nav > ul {
@@ -262,25 +281,24 @@ footer {
 }
 
 #projects > h2 {
-  font-size: 5rem;
+  font-size: calc(var(--main-header-size) / 1.8);
   overflow-y: hidden;
   line-height: 10rem;
-  margin-bottom: 2rem;
+  padding-bottom: 0.2ch;
+  margin-bottom: 0rem;
 }
 
 .project-container {
   justify-content: space-between;
   width: 100%;
+  margin: 1rem 0;
   height: calc((100vh - var(--footer-height)) / var(--projects));
 }
 
-.project-container:last-child {
-  margin-bottom: 2rem;
-}
-
 .project-container.large {
-  width: 50%;
+  /* width: 66%; */
   min-width: 40rem;
+  max-width: 50rem;
 }
 
 .project-container.reverse, .project-info.reverse {
@@ -299,7 +317,8 @@ footer {
 
 .project-title.normal {
   border-bottom-right-radius: 50%;
-  box-shadow: 0.2rem 0.2rem 0 0.2rem var(--color-main);
+  margin-right: 1rem;
+  box-shadow: 0.2rem 0.2rem 0 0.05rem var(--color-main);
 }
 
 .project-title.normal::after {
@@ -311,30 +330,33 @@ footer {
   width: 0.6rem;
   height: 0.6rem;
   box-shadow: 
-    0 0 0 0.15rem currentColor,
+    0 0 0 0.15rem var(--color-emphasis),
     0 0 0 0.3rem var(--color-bg),
     0.8rem 0.8rem 0 0.2rem currentColor,
     -0.8rem -0.8rem 0 0rem currentColor;
   background-color: var(--color-bg);
-  transform: translate(0, calc(50% + 0.2rem)) rotate(-45deg);
+  transform: translate(0, calc(50% + 0.1rem)) rotate(-45deg);
 }
 
 .project-title.normal::before {
   content: '';
   position: absolute;
   color: var(--color-main);
-  top: 0;
+  top: 50%;
   right: 0;
+  font-size: 2rem;
   width: 1rem;
-  height: 0.4rem;
-  box-shadow: 0 0 0 0.2rem var(--color-bg);
-  background-color: var(--color-main);
-  transform: translate(calc(50% + 0.2rem), 0) ;
+  height: 1rem;
+  box-shadow: 0 0 0 1rem var(--color-bg);
+  border-radius: 0.2rem;
+  background: linear-gradient(45deg, var(--color-emphasis), var(--color-main));
+  transform: translate(calc(50% + 0.2rem), -50%) rotate(45deg);
 }
 
 .project-title.reverse {
   border-top-left-radius: 50%;
-  box-shadow: -0.2rem -0.2rem 0 0.2rem var(--color-main);
+  margin-left: 1rem;
+  box-shadow: -0.2rem -0.2rem 0 0.05rem var(--color-main);
 }
 
 .project-title.reverse::after {
@@ -346,32 +368,34 @@ footer {
   width: 0.6rem;
   height: 0.6rem;
   box-shadow: 
-    0 0 0 0.15rem currentColor,
+    0 0 0 0.15rem var(--color-emphasis),
     0 0 0 0.3rem var(--color-bg),
     0.8rem 0.8rem 0 0.2rem currentColor,
     -0.8rem -0.8rem 0 0rem currentColor;
   background-color: var(--color-bg);
-  transform: translate(0, calc(-50% - 0.2rem)) rotate(135deg);
+  transform: translate(0, calc(-50% - 0.1rem)) rotate(135deg);
 }
 
 .project-title.reverse::before {
   content: '';
   position: absolute;
   color: var(--color-main);
-  bottom: 0;
+  top: 50%;
   left: 0;
+  font-size: 2rem;
   width: 1rem;
-  height: 0.4rem;
-  box-shadow: 0 0 0 0.2rem var(--color-bg);
-  background-color: var(--color-main);
-  transform: translate(calc(-50% - 0.2rem), 0);
+  height: 1rem;
+  box-shadow: 0 0 0 1rem var(--color-bg);
+  border-radius: 0.2rem;
+  background: linear-gradient(45deg, var(--color-emphasis), var(--color-main));
+  transform: translate(calc(-50% - 0.2rem), -50%) rotate(-135deg);
 }
 
 .project-title > a {
   display: flex;
   height: 100%;
   width: 100%;
-  font-size: calc(var(--main-header-size) / 2.2);
+  font-size: calc(var(--main-header-size) / 2.7);
   color: var(--color-emphasis);
   text-decoration: none;
   transition: all 0.2s;
@@ -410,7 +434,7 @@ footer {
 }
 
 .project-title > a:hover {
-  font-size: calc(var(--main-header-size) / 1.7);
+  font-size: calc(var(--main-header-size) / 2.5);
 }
 
 .project-title > a:hover::after {
@@ -427,18 +451,41 @@ footer {
   height: 100%;
 }
 
+.project-info.small, .project-info.extra-small {
+  flex-direction: column;
+}
+
 .project-info > p {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   font-size: calc(var(--main-header-size) / 4);
-  width: 50%;
+  width: 60%;
+  height: 66%;
+  margin: 0 1rem;
   overflow-y: hidden;
 }
 
-.project-info > p.medium {
-  font-size: calc(var(--main-header-size) / 6);
+.project-info > p > span.emphasised-text {
+  font-size: calc(var(--main-header-size) / 4.5);
+  margin: 1rem 0.2rem;
+  overflow-y: hidden;
 }
 
 .project-info > p.large {
-  font-size: calc(var(--main-header-size) / 5);
+  font-size: calc(var(--main-header-size) / 6);
+}
+
+.project-info > p.medium {
+  font-size: calc(var(--main-header-size) / 6.5);
+}
+
+.project-info > p.small {
+  width: 90%;
+}
+
+.project-info > p.extra-small {
+  width: 90%;
 }
 
 #contact {
@@ -557,6 +604,10 @@ footer {
 
 .hoverable-button.small {
   transform: scale(0.8);
+}
+
+.hoverable-button.large {
+  transform: scale(1.4);
 }
 
 .hoverable-link {
