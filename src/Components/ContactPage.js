@@ -43,13 +43,13 @@ const ContactPage = () => {
                 <address 
                     className={`flex-${isSmall ? 'row' : 'col'}`}
                 >
-                    <HoverableLink hoverHandle={null} to='https://github.com/Shemicalx'>
+                    <HoverableLink hoverHandler={null} to='https://github.com/Shemicalx'>
                         GitHub
                     </HoverableLink>
-                    <HoverableLink hoverHandle={null} to='https://www.linkedin.com/in/noamshemi/'>
+                    <HoverableLink hoverHandler={null} to='https://www.linkedin.com/in/noamshemi/'>
                         LinkedIn
                     </HoverableLink>
-                    <HoverableLink hoverHandle={null} to='https://www.buzzsprout.com/937528'>
+                    <HoverableLink hoverHandler={null} to='https://www.buzzsprout.com/937528'>
                         Podcast
                     </HoverableLink>
                 </address>

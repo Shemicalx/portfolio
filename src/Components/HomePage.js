@@ -55,7 +55,7 @@ const HomePage = () => {
                     <HomePageButtons handleButtonHover={handleButtonHover}>
                         {
                             [
-                                ['Who', '/'],
+                                ['Who', '/projects'],
                                 ['Where', '/contact'],
                                 ['What', '/projects'],
                             ]

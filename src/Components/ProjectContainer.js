@@ -3,6 +3,7 @@ import { DeviceContext } from '../Contexts/DeviceContext'
 import AnimatedText from './AnimatedText'
 import EmphasisedText from './EmphasisedText'
 import HoverableButton from './HoverableButton'
+import HoverableLink from './HoverableLink'
 
 const ProjectContainer = ({title, description, tech, to, reverse}) => {
 
@@ -60,9 +61,9 @@ const ProjectContainer = ({title, description, tech, to, reverse}) => {
                             </span>
                         </p>
                     ) : (
-                        <HoverableButton size="small" hoverHandler={handleTechHover}>
+                        <HoverableLink size="small" hoverHandler={handleTechHover} to={to}>
                             How
-                        </HoverableButton>
+                        </HoverableLink>
                     )
                 }
             </div>

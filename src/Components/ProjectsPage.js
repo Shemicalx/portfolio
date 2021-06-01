@@ -15,7 +15,8 @@ const ProjectsPage = () => {
             <ProjectContainer 
                 title='Memopa'
                 description="A memory-mapping and mnemonic converting SaaS."
-                tech="HTML, CSS, JavaScript, React | Hooks | Context API, Express.js, MongoDB, Firebase."
+                tech="HTML, CSS, SASS, JavaScript, React | Hooks | Context API, Express.js, MongoDB, Firebase."
+                to="https://memopa.com/"
             />
 
             <ProjectContainer
