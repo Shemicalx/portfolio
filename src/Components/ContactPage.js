@@ -97,8 +97,8 @@ const ContactPage = () => {
             </div>
             { messageSent && (
                 <Modal setMessageSent={setMessageSent}>
-                    <h2>Thank you!</h2>
-                    <p>Your message has been sent to me and I will respond as soon as possible.</p>
+                    <h2><EmphasisedText>Your message has been sent!</EmphasisedText></h2>
+                    <p>I appreciate you contacting me and I will respond as soon as possible<br/>Thank you for thinking of me,<br/><EmphasisedText>Noam.</EmphasisedText></p>
                 </Modal>
             )}
         </section>

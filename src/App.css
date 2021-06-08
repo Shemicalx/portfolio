@@ -598,8 +598,10 @@ footer {
 .card {
   position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
   top: 50%;
   left: 50%;
   min-height: 20rem;
@@ -609,6 +611,54 @@ footer {
   background-color: var(--color-bg);
   border-radius: 1em;
   z-index: 1;
+}
+
+.card > h2 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.card > p {
+  /* text-align: center; */
+  padding: .5em 1.25em;
+  font-size: 1.6rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: .5rem;
+  left: .5rem;
+  height: 2rem;
+  width: 2rem;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  transform: rotate(45deg);
+  z-index: 2;
+}
+
+.modal-close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 5px;
+  width: 100%;
+  background-color: var(--color-main);
+}
+
+.modal-close::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 5px;
+  background-color: var(--color-main);
+  overflow: hidden;
 }
 
 .modal-bg {
