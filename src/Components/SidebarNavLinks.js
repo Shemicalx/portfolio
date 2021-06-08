@@ -16,7 +16,7 @@ const SidebarNavLinks = () => {
                 <li>
                     <Link to="/projects">
                         <EmphasisedText>
-                            Projects
+                            Work
                         </EmphasisedText>
                     </Link>
                 </li>

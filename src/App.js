@@ -17,12 +17,12 @@ function App() {
   const [ device ] = useDeviceSize();
 
   //run tutorial on first load
-  if(tutorial && (device === 'medium' || device === 'large') && window.location.href === window.location.origin + '/') return (
-    <CursorProvider>
-      <TutorialOverlay setTutorial={setTutorial} />
-      <Cursor />
-    </CursorProvider>
-  ) 
+  // if(tutorial && (device === 'medium' || device === 'large') && window.location.href === window.location.origin + '/') return (
+  //   <CursorProvider>
+  //     <TutorialOverlay setTutorial={setTutorial} />
+  //     <Cursor />
+  //   </CursorProvider>
+  // ) 
 
   return (
     <Router>

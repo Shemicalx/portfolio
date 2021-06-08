@@ -56,7 +56,7 @@ const HomePage = () => {
                         {
                             [
                                 ['Who', '/projects'],
-                                ['Where', '/contact'],
+                                ['Why', '/contact'],
                                 ['What', '/projects'],
                             ]
                         }

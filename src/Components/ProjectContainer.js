@@ -43,7 +43,7 @@ const ProjectContainer = ({title, description, tech, to, reverse}) => {
             <div className={`project-info flex-row${reverse ? ' reverse' : ' normal'} ${device}`}>
                 <p className={device}>
                     <EmphasisedText>
-                        {title} {showTech ? 'how?' : 'what?'}
+                        {title}
                     </EmphasisedText>
                     <span>
                         <AnimatedText>
@@ -62,7 +62,7 @@ const ProjectContainer = ({title, description, tech, to, reverse}) => {
                         </p>
                     ) : (
                         <HoverableLink size="small" hoverHandler={handleTechHover} to={to}>
-                            How
+                            Tech
                         </HoverableLink>
                     )
                 }

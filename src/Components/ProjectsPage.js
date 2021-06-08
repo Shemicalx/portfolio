@@ -8,7 +8,7 @@ const ProjectsPage = () => {
         <section id="projects" className="flex-col">
             <h2>
                 <AnimatedText>
-                    My <EmphasisedText>Work</EmphasisedText>
+                    My <EmphasisedText>Portfolio</EmphasisedText>
                 </AnimatedText>
             </h2>
 

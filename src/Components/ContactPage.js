@@ -5,11 +5,14 @@ import EmphasisedText from './EmphasisedText';
 import HoverableButton from './HoverableButton'
 import emailjs from 'emailjs-com';
 import HoverableLink from './HoverableLink';
+import Modal from './Modal';
 
 const ContactPage = () => {
 
     const { device } = useContext(DeviceContext);
     const [ message, setMessage ] = useState('');
+    const [ messageSent, setMessageSent ] = useState(false);
+    const [ loading, setLoading ] = useState(false);
     
     const isSmall = device === 'small' || device === 'extra-small';
 
@@ -19,13 +22,16 @@ const ContactPage = () => {
 
     function handleSubmit(e) { 
         e.preventDefault();
+        setLoading(true);
         emailjs.sendForm('Portfolio', 'template_ub61guv', e.target, 'user_ZPuvXMoI1Hz8sQ2oJcxyF')
           .then((result) => {
-              console.log(result.text);
-              setMessage(()=> '')
+              setMessage(()=> '');
               e.target.reset();
+              setLoading(false);
+              setMessageSent(true);
           }, (error) => {
               console.log(error.text);
+              setLoading(false);
           });
     }
 
@@ -68,7 +74,6 @@ const ContactPage = () => {
                             type="email" 
                             name="email" 
                             placeholder="Email" 
-                            autoComplete="off"
                             required 
                         />
                         <label htmlFor="message" />
@@ -84,11 +89,18 @@ const ContactPage = () => {
                     { message ? <HoverableButton 
                         rotate={true} 
                         submit={message ? true : false }
+                        loading={loading}
                     >
                         Send
                     </HoverableButton> : "" }
                 </form>
             </div>
+            { messageSent && (
+                <Modal setMessageSent={setMessageSent}>
+                    <h2>Thank you!</h2>
+                    <p>Your message has been sent to me and I will respond as soon as possible.</p>
+                </Modal>
+            )}
         </section>
     )
 }
